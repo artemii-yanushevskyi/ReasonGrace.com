@@ -1,3 +1,10 @@
+{% load static %}
+<html>
+<head>
+  <title>Tracker</title>
+  <link rel="stylesheet" href="{% static 'css/layout.css' %}">
+</head>
+<body>
 <h1>Tracker</h1>
 <h3>Gather Process Analyse</h3>
 
@@ -8,3 +15,9 @@
   <p>{{ post.text|linebreaksbr }}</p>
 </div> 
 {% endfor %}
+{% static 'acb' %}
+<i>looks like static derectory isn't properly specified</i>
+<b>{% static 'css/layout.css' %}</b> 
+
+</body>
+</html>
