@@ -30,3 +30,12 @@ class Moment(models.Model):
         models.Model.__init__(self)
         self.previous_moments = []
         self.next_moments = []
+
+class Buffer(models.Model):
+    ''' convenient copy-paste '''
+    text = models.TextField()
+    created_date = models.DateTimeField(default=timezone.now)
+
+    def publish(self):
+        self.created_date = timezone.now()
+        self.save()

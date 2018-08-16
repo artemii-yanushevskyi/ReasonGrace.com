@@ -1,0 +1,12 @@
+div {
+  margin-top: 22pt;
+}
+
+td {
+  padding: 22pt;
+  margin: 6pt;
+  alias ..="cd .." alias ....="cd ../.."  } alias tracker="cd ~/site/mysite/tracker" table {
+alias site="cd ~/site/mysite"  margin: 33pt auto;
+  color: #777;
+  background: #bbb;
+}
