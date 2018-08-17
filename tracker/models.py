@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.postgres.fields import JSONField
+# from django.contrib.postgres.fields import JSONField
 # Create your models here.
 
 from django.db import models 
@@ -26,8 +26,9 @@ class Moment(models.Model):
     time = models.DateTimeField(default=timezone.now)
     name = models.CharField(max_length=500)
     description = models.TextField()
-    details = JSONField(default={0:0})
-    
+    # details = JSONField(default=dict)
+    details = models.TextField()
+
     def __init__(self, *args, **kwargs): 
         models.Model.__init__(self)
 

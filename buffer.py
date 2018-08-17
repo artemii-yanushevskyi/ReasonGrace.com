@@ -1,13 +1,4 @@
-def recent():
-    from tracker.models import Buffer
-
-    buffer = Buffer.objects.order_by(created_date)
-
-    return buffer[-1]
-
-def all():
-    from tracker.models import Buffer
-                                                                                                                                            
-    buffer = Buffer.objects.order_by(created_date)
-                                                                                                                                            
-    return buffer
+from tracker.models import Buffer
+buffers = Buffer.objects.order_by('created_date')
+for buffer in buffers:
+    print(buffer.text)                                                                                                           

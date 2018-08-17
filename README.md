@@ -31,3 +31,18 @@ alias site="cd ~/site/mysite"
 *Do not forget to add a default value*
 
 
+
+## To do
+
+You can’t use a JSONField from django.contrib.postgres with an Sqlite3 database. You need to either set up a PostgreSQL database and update 
+your DATABASES setting, or use a different field in your model. 
+
+
+ #### Reset Migrations While Keeping DBs                                                                                                   
+> ```                                                                                                                                       
+python manage.py migrate --fake tracker zero
+find . -path "*/migrations/*.py" -not -name "__init__.py" -delete
+find . -path "*/migrations/*.pyc" -delete
+python manage.py makemigrations
+python manage.py showmigrations
+python manage.py migrate```
