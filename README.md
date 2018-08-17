@@ -13,3 +13,11 @@ alias ..="cd .."
 alias ....="cd ../.."                                                                                                                       
 alias tracker="cd ~/site/mysite/tracker"                                                                                                    
 alias site="cd ~/site/mysite"
+
+#### Install JSONField
+
+```fabulous@ssh4:~/site/env/bin$ pip install psycopg2```
+
+```python manage.py makemigrations tracker```
+
+*Do not forget to add a default value*

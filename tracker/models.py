@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.postgres.fields import JSONField
 # Create your models here.
 
 from django.db import models 
@@ -20,16 +20,20 @@ class Post(models.Model):
     def __str__(self): 
         return self.title
 
+
 class Moment(models.Model):
     ''' create moment class'''
     time = models.DateTimeField(default=timezone.now)
     name = models.CharField(max_length=500)
     description = models.TextField()
+    details = JSONField(default={0:0})
     
     def __init__(self, *args, **kwargs): 
         models.Model.__init__(self)
-        self.previous_moments = []
-        self.next_moments = []
+
+    def __str__(self):
+        return name
+
 
 class Buffer(models.Model):
     ''' convenient copy-paste '''
@@ -39,3 +43,4 @@ class Buffer(models.Model):
     def publish(self):
         self.created_date = timezone.now()
         self.save()
+

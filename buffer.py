@@ -1,6 +1,13 @@
-print("In an app")
+def recent():
+    from tracker.models import Buffer
 
+    buffer = Buffer.objects.order_by(created_date)
 
-from tracker.models import Buffer
-Buffer.objects.all()
+    return buffer[-1]
 
+def all():
+    from tracker.models import Buffer
+                                                                                                                                            
+    buffer = Buffer.objects.order_by(created_date)
+                                                                                                                                            
+    return buffer
