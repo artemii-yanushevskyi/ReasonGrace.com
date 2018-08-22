@@ -20,13 +20,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'zjo83qf2)%t7rk3_x8%pq*&o0x^a$d#82e1tr7uqd!=!&s!&-3'
+
+# SECRET_KEY = 'zjo83qf2)%t7rk3_x8%pq*&o0x^a$d#82e1tr7uqd!=!&s!&-3'
+
+from hidden_settings.py import SECRET_KEY, psql_password
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -75,35 +77,17 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#    }
-#}
-
-DATABASES = { 
-    'default': { 
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'fabulous_tracker_psql',
-        'USER': 'fabulous',
-        'PASSWORD': 'Password is hiden',
-        'HOST': 'postgresql-fabulous.alwaysdata.net',
-        'PORT': '', 
-    } 
-}
-
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    },
 }
 
-import settings_public
+# from settings_public import *
 
-# Password validation https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
+# Password validation 
+# https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -139,10 +123,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-ALLOWED_HOSTS = ['198.211.99.20', 'localhost', '127.0.0.1']
-ALLOWED_HOSTS = ['fabulous.alwaysdata.net', 'localhost', '127.0.0.1']
-ALLOWED_HOSTS = ['fabulous.alwaysdata.net', 'localhost', '127.0.0.1']
+
 ALLOWED_HOSTS = ['fabulous.alwaysdata.net', 'reasongrace.com', 'localhost', '127.0.0.1']
+
 TIME_ZONE = 'Europe/Kiev'
-STATIC_URL = '/static/'
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
