@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECRET_KEY = 'zjo83qf2)%t7rk3_x8%pq*&o0x^a$d#82e1tr7uqd!=!&s!&-3'
 
-from hidden_settings.py import SECRET_KEY, psql_password
+from mysite.hidden_settings import SECRET_KEY, psql_password
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
