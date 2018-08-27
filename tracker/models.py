@@ -20,6 +20,11 @@ class Post(models.Model):
     def __str__(self): 
         return self.title
 
+class Bookmark(models.Model):
+    ''' create bookmark'''
+    text = models.TextField()
+    created_date = models.DateTimeField(default=timezone.now)
+
 
 class Moment(models.Model):
     ''' create moment class'''
