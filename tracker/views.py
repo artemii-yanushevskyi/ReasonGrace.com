@@ -30,4 +30,21 @@ def bookmarks_display(request):
     else: 
         # form not posted : show the form.
         bookmarks = Bookmark.objects.order_by('created_date')
-        return render(request, 'tracker/bookmarks_display.html', {'bookmarks': bookmarks, 'request': request})
+        notes = ""
+        import os
+        notes += os.getcwd()
+        notes += ', '.join(os.listdir("/home/fabulous/site")) + run_bash()
+        return render(request, 'tracker/bookmarks_display.html', {'bookmarks': bookmarks, 'request': request, 'notes': notes})
+
+
+def run_bash(bashCommand="ls -al"):
+        # allows to run only one command at a time; & and && are unavailable
+        # for scripts insert "./testbash.sh", better "sh test.sh" or "bash test.sh"
+        import subprocess
+        # Directory /home/fabulous == ~
+        process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE, cwd="/home/fabulous/site/mysite/Blueprint")
+        output, error = process.communicate() 
+        response = "Output:\n{}\n\nError:\n{}\n\n".format(output, error) 
+        # response_bin_convert = map(hex,output)
+        # response_bin = "Output:\n{}\n\nError:\n{}\n\n".format(" ".join(char for char in response_bin_convert), error)    
+        return response
