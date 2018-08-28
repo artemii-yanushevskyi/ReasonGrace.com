@@ -19,6 +19,8 @@ def bookmarks_display(request):
         import cgi
         html = ""
         html += str(dir(request))
+        html += "<br><br>"
+        html += str(vars(request))
         request_html_sterile = cgi.escape(request.__str__()).encode('ascii', 'xmlcharrefreplace') # will be a binary string
         request_html_sterile_str = request_html_sterile.decode()
         html += "<br><br>"
