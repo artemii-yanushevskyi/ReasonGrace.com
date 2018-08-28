@@ -29,6 +29,10 @@ __dict__<br>:
 New Bookmark <br> <input type="text" name="bookmark"> <br><br> <input type="submit" value="Submit"> </form>
 
 {{ notes }}
-         
+
+<br>
+
+{% autoescape off %}{{ html_notes }}{% endautoescape %}
+{{ html_notes }}         
 <body>
 </html>

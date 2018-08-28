@@ -30,11 +30,19 @@ def bookmarks_display(request):
     else: 
         # form not posted : show the form.
         bookmarks = Bookmark.objects.order_by('created_date')
+        html_notes = ""
         notes = ""
         import os
-        notes += os.getcwd()
-        notes += ', '.join(os.listdir("/home/fabulous/site")) + run_bash()
-        return render(request, 'tracker/bookmarks_display.html', {'bookmarks': bookmarks, 'request': request, 'notes': notes})
+        html_notes += os.getcwd() + "<br>\n"
+        html_notes += "<br>\n".join(os.listdir("/home/fabulous/site")) 
+        
+        bash_query = """curl https://api.github.com/markdown/raw -X "POST" -H "Content-Type: text/plain" -d 
+            "**ctrlf** __adf__" """
+        bash = run_bash(bash_query)
+        html_notes += bash.replace("\n", "<br>\n")
+        notes += bash_query
+        return render(request, 'tracker/bookmarks_display.html', {'bookmarks': bookmarks, 'request': request,
+            'notes': notes, 'html_notes': html_notes,})
 
 
 def run_bash(bashCommand="ls -al"):
