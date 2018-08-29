@@ -32,7 +32,17 @@ def bookmarks_display(request):
         bookmarks = Bookmark.objects.order_by('created_date')
         html_notes = ""
         notes = ""
+        md_notes = ""
         import os
+        
+        from django.contrib.staticfiles.storage import staticfiles_storage
+        url = staticfiles_storage.url('private/test.md')
+        md_notes += "#Full URL of the test.md: ```" + url + "```.\\n context of test.md:\\n" 
+        with open(url) as f:
+            md_text = f.read()
+        md_text_flatline = md_text.replace("\n", "\\n")
+        md_notes += '\\n\\n' + md_text_flatline 
+        # use \n instead of \\n to make an actual new line, as opposed to a symbol "\n", in final html
         html_notes += os.getcwd() + "<br>\n"
         html_notes += "<br>\n".join(os.listdir("/home/fabulous/site")) 
         
@@ -42,7 +52,9 @@ def bookmarks_display(request):
         html_notes += bash.replace("\n", "<br>\n")
         notes += bash_query
         return render(request, 'tracker/bookmarks_display.html', {'bookmarks': bookmarks, 'request': request,
-            'notes': notes, 'html_notes': html_notes,})
+            'notes': notes, 'html_notes': html_notes,
+            'md_notes': md_notes,
+            })
 
 
 def run_bash(bashCommand="ls -al"):
