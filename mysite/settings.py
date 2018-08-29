@@ -122,7 +122,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/home/fabulous/site/mysite/tracker/static/'
 
 ALLOWED_HOSTS = ['fabulous.alwaysdata.net', 'reasongrace.com', 'localhost', '127.0.0.1']
 
