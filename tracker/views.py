@@ -34,9 +34,10 @@ def bookmarks_display(request):
         notes = ""
         md_notes = ""
         import os
-        
-        from django.contrib.staticfiles.storage import staticfiles_storage
-        url = staticfiles_storage.url('private/test.md')
+              
+        from django.conf import settings
+        md_notes += "**import STATIC_ROOT _from_ settings: ```" + settings.STATIC_ROOT + "```**\\n"
+        url = os.path.join(settings.STATIC_ROOT, 'private/test.md')
         md_notes += "#Full URL of the test.md: ```" + url + "```.\\n context of test.md:\\n" 
         with open(url) as f:
             md_text = f.read()
