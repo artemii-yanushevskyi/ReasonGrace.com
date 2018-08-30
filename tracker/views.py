@@ -11,7 +11,83 @@ def dynamic_update(request):
     html = "<h1>dynamic update</h1> <code>def dynamic_update(request):</code>"
     return HttpResponse(html)
 
+class ViewTemplateExport:
+    def __init__(self, content, init_type='text', compose_type='html'):
+        self.content = content # usually dictionary
+        self.init_type = init_type
+        self.compose_type = compose_type
+
+    def compose(self):
+        ''' prepare the object for export to template'''
+        if type(self.content) == type({}) and init_type=='dictionary' and compose_type=='JSON':
+            import json
+            json_string = json.dumps(self.content)
+            return_string = json_string
+        elif self.init_type == "md" and self.compose_type=="jsvar":
+            # use \n instead of \\n to make an actual new line, as opposed to a symbol "\n", in final html
+            return_string = self.content.replace("\n", "\\n")
+        else:
+            # meaning input type is ..
+            return_string = self.content
+        return return_string
+
+def sterile_HTML(html):
+    import cgi
+    sterile_bin = cgi.escape(html).encode('ascii', 'xmlcharrefreplace') # will be a binary string
+    sterile = sterile_bin.decode() # now that's a string
+    return sterile
+
+def request_info(request):
+    # general info: <WSGIRequest: POST '/bookmarks'>
+    general_info = sterile_HTML(str(request))
+    # detailed info: will be a dictionary passed to template as JSON string
+    detailed_info = ViewTemplateExport(vars(request), init_type='dictionary', compose_type='JSON') # will be a json string
+    return general_info, detailed_info
+
+def site_report(request):
+    ''' view'''
+    from os import getcwd, path
+
+    # request test
+    request_general, request_detailed = request_info(request) # tupple, general and detailed information about request
+
+    # db test
+    from tracker.models import Bookmark
+    bookmarks = Bookmark.objects.order_by('created_date')
+
+    # django test
+    from django.conf import settings
+    static_root, static_url = settings.STATIC_ROOT, settings.STATIC_URL
+    settings_static = ViewTemplateExport(
+        "Static **root**```" + static_root + "```, Static **URL** ```" + static_url + "```.\n",
+        init_type="md", compose_type="jsvar")
+
+    # md test
+    md_file_url = path.join(settings.STATIC_ROOT, 'private/test.md')
+    md_info = "**complete** URL of the ```test.md``` on the server: ```" + md_file_url + "```.\n ### Context of test.md\n"
+    with open(md_file_url) as f: 
+        md_file_text = f.read()                          
+    md = ViewTemplateExport(md_info + md_file_text,
+        init_type="md", compose_type="jsvar")
+  
+    # bash test
+    bash_query = "ls -al"
+    bash_resp = run_bash(bash_query)
+
+    # env test
+    cwd = getcwd()
+
+    return render(request, 'tracker/site_report.html', {
+        'bookmarks': bookmarks, 
+        'request_general': request_general, 'request_detailed': request_detailed,
+        'settings_static': settings_static.compose(),
+        'md': md.compose(),
+        'bash_resp': bash_resp,
+        'cwd': cwd,
+    }) 
+
 def bookmarks_display(request):
+    ''' view'''
     from tracker.models import Bookmark
     
     if request.method == 'POST': 
@@ -69,3 +145,4 @@ def run_bash(bashCommand="ls -al"):
         # response_bin_convert = map(hex,output)
         # response_bin = "Output:\n{}\n\nError:\n{}\n\n".format(" ".join(char for char in response_bin_convert), error)    
         return response
+

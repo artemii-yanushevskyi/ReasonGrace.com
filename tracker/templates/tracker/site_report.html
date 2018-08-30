@@ -1,0 +1,65 @@
+{% load static %}
+<html>
+<head>
+  <title>About</title>
+  <link rel="stylesheet" href="{% static 'css/layout.css' %}">
+</head>
+
+<body>
+<h1>Site Report</h1>
+
+<code>
+    return render(request, 'tracker/site_report.html', {
+        'bookmarks': bookmarks,
+        'request_general': request_general, 'request_detailed': request_detailed,
+        'settings_static': settings_static,
+        'md': md,
+        'bash_resp': bash_resp,
+        'cwd': cwd,
+    })
+</code>
+
+{% for bookmark in bookmarks %} 
+<div> 
+  <h3>Created on {{ bookmark.created_date }}</h3>
+  <p>{{ bookmark.text|linebreaksbr }}</p>
+</div> 
+{% endfor %}
+
+
+{{ request_general }} 
+{{ request_detailed }}
+{{ settings_static }}
+{{ md }}
+{{ bash_resp }}
+{{ cwd }}
+
+
+<form method='POST'> 
+
+{% csrf_token %} {{ form }}
+
+New Bookmark <br> <input type="text" name="bookmark"> <br><br> <input type="submit" value="Submit"> </form>
+
+{{ settings_static }}
+
+<p id="for-md">Markdown file</p>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.min.js"></script>
+<script>
+
+var converter = new showdown.Converter(), text = "{% autoescape off %}{{ md }}{% endautoescape %}".replace(/&quot;/g,"\""), html = converter.makeHtml(text);
+console.log(html);
+
+document.getElementById("for-md").innerHTML = html; 
+
+</script>
+
+{{ md }}
+
+<br>
+
+{% autoescape off %}{{ md }}{% endautoescape %}
+{{ settings_static }}         
+<body>
+</html>
