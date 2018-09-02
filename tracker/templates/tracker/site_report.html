@@ -8,16 +8,28 @@
 <body>
 <h1>Site Report</h1>
 
+
+
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 <code>
-    return render(request, 'tracker/site_report.html', {
-        'bookmarks': bookmarks,
-        'request_general': request_general, 'request_detailed': request_detailed,
-        'settings_static': settings_static,
-        'md': md,
-        'bash_resp': bash_resp,
-        'cwd': cwd,
-    })
+	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+  The lang-* class specifies the language file extensions.
+  File extensions supported by default include:
+    "bsh", "c", "cc", "cpp", "cs", "csh", "cyc", "cv", "htm", "html", "java",
+    "js", "m", "mxml", "perl", "pl", "pm", "py", "rb", "sh", "xhtml", "xml",
+    "xsl".
 </code>
+
+<pre class="prettyprint lang-py">
+return render(request, 'tracker/site_report.html', {
+    'bookmarks': bookmarks,
+    'request_general': request_general, 'request_detailed': request_detailed,
+    'settings_static': settings_static,
+    'md': md,
+    'bash_resp': bash_resp,
+    'cwd': cwd,
+})
+</pre>
 
 {% for bookmark in bookmarks %} 
 <div> 
@@ -60,6 +72,12 @@ document.getElementById("for-md").innerHTML = html;
 <br>
 
 {% autoescape off %}{{ md }}{% endautoescape %}
-{{ settings_static }}         
+{{ settings_static }}
+
+<style>
+pre.prettyprint {
+	border: none !important;
+}
+</style>         
 <body>
 </html>
