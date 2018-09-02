@@ -19,13 +19,20 @@ class ViewTemplateExport:
 
     def compose(self):
         ''' prepare the object for export to template'''
-        if type(self.content) == type({}) and init_type=='dictionary' and compose_type=='JSON':
+        if type(self.content) == type({}) and self.init_type=='dictionary' and self.compose_type=='JSON':
             import json
-            json_string = json.dumps(self.content)
+            dictionary = self.content.copy() # absolutely necessary to make a copy,
+            # so that changes in dictionary will not affect self.content.
+            
+            # How to see inside variable "dictionary" if I don't know how to print?
+            # raise Exception(dictionary, type(dictionary))
+            dictionary_str = sterile_dictionary(dictionary)
+
+            json_string = json.dumps(dictionary_str)
             return_string = json_string
         elif self.init_type == "md" and self.compose_type=="jsvar":
             # use \n instead of \\n to make an actual new line, as opposed to a symbol "\n", in final html
-            return_string = self.content.replace("\n", "\\n")
+            return_string = self.content.replace("\n", "\\n") + "\\n###### md to jsvar"
         else:
             # meaning input type is ..
             return_string = self.content
@@ -36,7 +43,25 @@ def sterile_HTML(html):
     sterile_bin = cgi.escape(html).encode('ascii', 'xmlcharrefreplace') # will be a binary string
     sterile = sterile_bin.decode() # now that's a string
     return sterile
-
+    
+def sterile_dictionary(dic):
+    ''' converts a dictionary to a dictionary of strings'''
+    for key, value in dic.items():
+        if type(key) is not str:
+            raise Exception("A key type has to be str, but", key, "is not a string")
+            
+        if type(value) is str:
+            pass # the desired case
+        elif type(value) is dict:
+            dict_value = sterile_dictionary(value) # recurcive call
+            dic[key] = dict_value
+        else:
+            # converting to str, for 
+            # 'uwsgi.version': b'2.0.17.1' and
+            # 'wsgi.errors': <_io.TextIOWrapper name=2 mode='w' encoding='UTF-8'>,
+            dic[key] = str(value)
+    return dic
+            
 def request_info(request):
     # general info: <WSGIRequest: POST '/bookmarks'>
     general_info = sterile_HTML(str(request))
@@ -59,12 +84,13 @@ def site_report(request):
     from django.conf import settings
     static_root, static_url = settings.STATIC_ROOT, settings.STATIC_URL
     settings_static = ViewTemplateExport(
-        "Static **root**```" + static_root + "```, Static **URL** ```" + static_url + "```.\n",
+        "Static **root**```" + static_root + "```\nStatic **URL** ```" + static_url + "```.\n",
         init_type="md", compose_type="jsvar")
 
     # md test
     md_file_url = path.join(settings.STATIC_ROOT, 'private/test.md')
-    md_info = "**complete** URL of the ```test.md``` on the server: ```" + md_file_url + "```.\n ### Context of test.md\n"
+    md_info = "**complete** URL of the ```test.md``` on the server: ```" + md_file_url + "```.\\n ### Context of test.md\n"
+    # there is a bug "```.\n### Con..." works as expected, while "```.\n ### Con..." doesn't (ignores \n)
     with open(md_file_url) as f: 
         md_file_text = f.read()                          
     md = ViewTemplateExport(md_info + md_file_text,
@@ -79,7 +105,7 @@ def site_report(request):
 
     return render(request, 'tracker/site_report.html', {
         'bookmarks': bookmarks, 
-        'request_general': request_general, 'request_detailed': request_detailed,
+        'request_general': request_general, 'request_detailed': request_detailed.compose(),
         'settings_static': settings_static.compose(),
         'md': md.compose(),
         'bash_resp': bash_resp,
