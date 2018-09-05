@@ -47,4 +47,4 @@ python manage.py makemigrations
 python manage.py showmigrations
 python manage.py migrate```
 
-> Now I can commit from iPhone using CodeHub.
+> Now I can edit files and commit changes from iPhone via CodeHub.
