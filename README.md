@@ -46,3 +46,5 @@ find . -path "*/migrations/*.pyc" -delete
 python manage.py makemigrations
 python manage.py showmigrations
 python manage.py migrate```
+
+> Now I can commit from iPhone using CodeHub.
