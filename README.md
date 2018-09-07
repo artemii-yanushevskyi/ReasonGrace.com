@@ -52,6 +52,9 @@ python manage.py makemigrations
 python manage.py showmigrations
 python manage.py migrate```
 
+<<<<<<< HEAD
 
 ## Development process
-Atom code editor with sftp support is the best option I know for remote editing.
+> Atom code editor with sftp support is the best option I know for remote editing.
+
+> Now I can edit files and commit changes from iPhone via CodeHub.
