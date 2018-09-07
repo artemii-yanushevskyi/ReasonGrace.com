@@ -89,7 +89,7 @@ def site_report(request):
 
     # md test
     md_file_url = path.join(settings.STATIC_ROOT, 'private/test.md')
-    md_info = "**complete** URL of the ```test.md``` on the server: ```" + md_file_url + "```.\\n ### Context of test.md\n"
+    md_info = "**complete** URL of the ```test.md``` on the server: ```" + md_file_url + "```.\\n### Context of test.md\n"
     # there is a bug "```.\n### Con..." works as expected, while "```.\n ### Con..." doesn't (ignores \n)
     with open(md_file_url) as f: 
         md_file_text = f.read()                          
