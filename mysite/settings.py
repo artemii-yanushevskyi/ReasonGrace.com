@@ -19,7 +19,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'zjo83qf2)%t7rk3_x8%pq*&o0x^a$d#82e1tr7uqd!=!&s!&-3'
+# old SECRET_KEY = 'zjo83qf2)%t7rk3_x8%pq*&o0x^a$d#82e1tr7uqd!=!&s!&-3'
 
 from mysite.hidden_settings import SECRET_KEY, psql_password
 
@@ -71,7 +71,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
@@ -84,7 +83,7 @@ DATABASES = {
 
 # from settings_public import *
 
-# Password validation 
+# Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -108,7 +107,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Kiev'
 
 USE_I18N = True
 
@@ -120,13 +119,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-STATIC_URL = '/static/' 
+STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'tracker/static') # BASE_DIR contains manage.py
-STATICFILES_DIRS = []
-
-print("STATIC_URL:", STATIC_URL, "\nSTATIC_ROOT:", STATIC_ROOT)
 
 ALLOWED_HOSTS = ['fabulous.alwaysdata.net', 'reasongrace.com', 'localhost', '127.0.0.1']
-
-TIME_ZONE = 'Europe/Kiev'
-
