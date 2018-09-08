@@ -3,81 +3,59 @@
 <head>
   <title>About</title>
   <link rel="stylesheet" href="{% static 'css/layout.css' %}">
+  <script src="{% static 'js/tablify.js' %}"></script>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:100,400" rel="stylesheet">
 </head>
-
 <body>
+
 <h1>Site Report</h1>
 
-
-
-<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-<code>
-	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-  The lang-* class specifies the language file extensions.
-  File extensions supported by default include:
-    "bsh", "c", "cc", "cpp", "cs", "csh", "cyc", "cv", "htm", "html", "java",
-    "js", "m", "mxml", "perl", "pl", "pm", "py", "rb", "sh", "xhtml", "xml",
-    "xsl".
-</code>
-
-<pre class="prettyprint lang-py">
-return render(request, 'tracker/site_report.html', {
-    'bookmarks': bookmarks,
-    'request_general': request_general, 'request_detailed': request_detailed,
-    'settings_static': settings_static,
-    'md': md,
-    'bash_resp': bash_resp,
-    'cwd': cwd,
-})
-</pre>
-
-{% for bookmark in bookmarks %} 
-<div> 
-  <h3>Created on {{ bookmark.created_date }}</h3>
-  <p>{{ bookmark.text|linebreaksbr }}</p>
-</div> 
-{% endfor %}
-
-
-{{ request_general }} 
-{{ request_detailed }}
-{{ settings_static }}
-{{ md }}
-{{ bash_resp }}
-{{ cwd }}
-
-
-<form method='POST'> 
-
-{% csrf_token %} {{ form }}
-
-New Bookmark <br> <input type="text" name="bookmark"> <br><br> <input type="submit" value="Submit"> </form>
-
-{{ settings_static }}
-
-<p id="for-md">Markdown file</p>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.min.js"></script>
+<h2>Server request</h2>
+<div id="request-table"></div>
 <script>
-
-var converter = new showdown.Converter(), text = "{% autoescape off %}{{ md }}{% endautoescape %}".replace(/&quot;/g,"\""), html = converter.makeHtml(text);
-console.log(html);
-
-document.getElementById("for-md").innerHTML = html; 
-
+  var request = {{ request_detailed | safe }};
+  document.getElementById("request-table").innerHTML = tablify(request,"Request");
 </script>
 
-{{ md }}
+<h2>Paths from <code>settings.py</code></h2>
+<div id="paths-table"></div>
+<script>
+  var request = {{ settings_static | safe }};
+  document.getElementById("paths-table").innerHTML = tablify(request,"Paths");
+</script>
 
-<br>
+<h2>What is sent from <code>views.py site_report</code> function to the template?</h2>
+<pre class="prettyprint lang-py">
+{{ views_py }}
+</pre>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+<p>Variable <code>cwd</code> from <code>views.py</code> <code>site_report</code> function is <code>{{ cwd }}</code>.</p>
 
-{% autoescape off %}{{ md }}{% endautoescape %}
-{{ settings_static }}
+<h2>Bookmarks Database</h2>
+{% for bookmark in bookmarks %}
+<p>
+<div>
+  <h3>{{ bookmark.created_date }}</h3>
+  <p>{{ bookmark.text|linebreaksbr }}</p>
+</div>
+</p>
+{% endfor %}
 
-<style>
-pre.prettyprint {
-	border: none !important;
-}
-</style>         
+<h2>Form</h2>
+<form method='POST'>
+{% csrf_token %} {{ form }}
+<br> <input type="text" name="bookmark"> <br><br> <input type="submit" value="Submit"> </form>
+
+<h2>Displaying Markdown files</h2>
+<p>
+<div id="for-md"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.min.js"></script>
+<script>
+var converter = new showdown.Converter(), text = "{% autoescape off %}{{ md }}{% endautoescape %}".replace(/&quot;/g,"\""), html = converter.makeHtml(text);
+// autoescape off switches off automatic convertion of < and > to &lt; and &gt;
+document.getElementById("for-md").innerHTML = html;
+</script>
+</p>
+
 <body>
 </html>
