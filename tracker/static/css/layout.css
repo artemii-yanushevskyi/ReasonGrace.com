@@ -1,5 +1,90 @@
+/* ########## BODY ########### */
+
 body {
+  font-family: "Montserrat", "Helvetica", "Lucida Sans", "Lucida Sans Unicode", "Luxi Sans", Tahoma, sans-serif;
   margin: 100px, auto;
   color: #777777;
-  padding: 15%;
+  font-size: 13pt;
+  /* padding: 15%; */
 }
+
+/* ########## FOR MD ########### */
+
+p {
+  margin: auto;
+  padding: 1cm 5cm 0cm 5cm;
+}
+
+/* ########## TABLES ########### */
+
+form {
+  padding: 1cm 5cm 0cm 5cm;
+}
+
+/* ########## TYPOGRAPHY ########### */
+
+h1 {
+  font-weight: 100;
+  font-size: 44pt;
+  padding: 1cm 5cm 0cm 5cm;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 33pt;
+  padding: 1cm 5cm 0cm 5cm;
+}
+h3 {
+  font-variant: small-caps;
+  padding: 1cm 5cm 0cm 5cm;
+
+}
+
+/* ########## TABLES ########### */
+
+table {
+  font-size: 10pt;
+  font-family: "Montserrat", "Helvetica", "Lucida Sans", "Lucida Sans Unicode", "Luxi Sans", Tahoma, sans-serif;
+  box-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+table {
+  margin: auto;
+}
+
+table, td, th {
+  padding: 7px;
+  text-align: center;
+  border: 1px solid rgb(8,48,107);
+}
+
+th {
+  background-color: #5f08c2;
+  color: white;
+}
+
+tr:nth-of-type(odd) {
+  background: #f2f2f2;
+}
+
+td.table-inside {
+  padding: 22px;
+}
+
+/* ########## PRETTYPRINT ########### */
+
+pre.prettyprint {
+	border: none !important;
+  margin: 1cm 5cm 0cm 5cm;
+  font-size: 10pt;
+}
+
+/* ########## FOR MD ########### */
+
+.for-md {
+
+}
+
+/* ########## TABLES ########### */
