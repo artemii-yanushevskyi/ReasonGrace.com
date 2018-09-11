@@ -81,6 +81,17 @@ DATABASES = {
     },
 }
 
+# DATABASES = {
+#     'default': {
+#             'ENGINE': 'django.db.backends.postgresql',
+#             'NAME': 'fabulous_db',
+#             'USER': 'fabulous',
+#             'PASSWORD': psql_password,
+#             'HOST': 'postgresql-fabulous.alwaysdata.net',
+#             'PORT': '',
+#     },
+# }
+
 # from settings_public import *
 
 # Password validation

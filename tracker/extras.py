@@ -1,3 +1,6 @@
+def my_encode(n):
+    return (n*34 + 71)//541
+
 class ViewTemplateExport:
     def __init__(self, content, init_type='text', compose_type='html'):
         self.content = content # usually dictionary

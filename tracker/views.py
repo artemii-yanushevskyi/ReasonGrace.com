@@ -1,9 +1,53 @@
 from django.shortcuts import render
 from django.utils import timezone
-from tracker.models import Post
 from django.http import HttpResponse
 
+
+# from tracker.models import Post
 from tracker.extras import sterile_HTML, sterile_dictionary, run_bash, ViewTemplateExport
+from .forms import EncodeForm
+
+def encode_page(request, username="example"):
+    method = request.method
+    form = EncodeForm()
+    if request.method == 'POST':
+        form = EncodeForm(request.POST)
+        message = form.data['message']
+        try:
+            number = int(message)
+            from tracker.extras import my_encode
+            crypto = my_encode(number)
+            message = "Encoded number" + str(crypto)
+        except:
+            message = "Must be int"
+    elif request.method == 'GET':
+        message = 'Create a message'
+    return render(request, 'tracker/encode_page.html', {
+            'method' :method,
+            'message': message,
+            'form': form,
+        })
+
+def decode_page(request):
+    method = request.method
+    form = EncodeForm()
+    if request.method == 'POST':
+        form = EncodeForm(request.POST)
+        message = form.data['message']
+        try:
+            number = int(message)
+            from tracker.extras import my_encode
+            crypto = my_encode(number)
+            message = "Encoded number" + str(crypto)
+        except:
+            message = "Must be int"
+    elif request.method == 'GET':
+        message = 'Create a message'
+    return render(request, 'tracker/encode_page.html', {
+            'method' :method,
+            'message': message,
+            'form': form,
+        })
 
 def site_report(request):
     ''' view'''
@@ -13,8 +57,11 @@ def site_report(request):
     request_general, request_detailed = request_info(request) # tupple, general and detailed information about request
 
     # db test
-    from tracker.models import Bookmark
-    bookmarks = Bookmark.objects.order_by('created_date')
+    try:
+        from tracker.models import Bookmark
+        bookmarks = Bookmark.objects.order_by('created_date')
+    except:
+        bookmarks = "No bookmarks"
 
     # django test
     from django.conf import settings
@@ -56,9 +103,9 @@ def site_report(request):
         'views_py': views_py,
     })
 
-def tracker_data(request):
-    posts = Post.objects.order_by('published_date')
-    return render(request, 'tracker/tracker_data.html', {'posts': posts})
+# def tracker_data(request):
+#     posts = Post.objects.order_by('published_date')
+#     return render(request, 'tracker/tracker_data.html', {'posts': posts})
 
 def dynamic_update(request):
     html = "<h1>dynamic update</h1> <code>def dynamic_update(request):</code>"
