@@ -1,0 +1,27 @@
+{% load static %}
+<html>
+<head>
+  <title>About</title>
+  <link rel="stylesheet" href="{% static 'css/layout.css' %}">
+  <script src="{% static 'js/tablify.js' %}"></script>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:100,400" rel="stylesheet">
+</head>
+<body>
+
+<h1>Encode</h1>
+
+<p>
+  <code>Request method: {{ method }}<code>
+</p>
+
+<h2>Form</h2>
+<form method='POST'>
+{% csrf_token %}
+{{ form }} <br>
+<input type="submit" value="Submit">
+</form>
+
+<p>{{ message }}</p>
+
+<body>
+</html>
