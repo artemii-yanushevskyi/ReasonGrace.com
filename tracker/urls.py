@@ -9,4 +9,7 @@ urlpatterns = [
 
     re_path(r'encode/?$',views.encode_page),
     re_path(r'encode/(?P<username>[\w-]*)/?$', views.encode_page),
+
+    re_path(r'shop/?$',views.shop_dash, name='shop_dash'),
+    re_path(r'shop/(?P<seller>[\w-]*)/?$', views.shop_dash, name='shop_dash'),
 ]

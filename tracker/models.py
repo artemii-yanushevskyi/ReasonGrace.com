@@ -1,9 +1,21 @@
 from django.db import models
-# from django.contrib.postgres.fields import JSONField
-# Create your models here.
-
-from django.db import models
 from django.utils import timezone
+
+class Purchase(models.Model):
+    type = models.CharField(max_length=20)
+    price = models.IntegerField(default=0)
+    time = models.DateTimeField(default=timezone.now)
+    seller = models.CharField(max_length=10)
+
+    def __tstr__(self):
+        type = self.type
+        price = self.price
+        return ' | '.join([self.type, self.price, self.time, self.seller])
+
+class Bookmark(models.Model):
+    ''' create bookmark'''
+    text = models.TextField()
+    created_date = models.DateTimeField(default=timezone.now)
 
 # class Post(models.Model):
 #     ''' create post class '''
@@ -19,11 +31,6 @@ from django.utils import timezone
 #
 #     def __str__(self):
 #         return self.title
-
-class Bookmark(models.Model):
-    ''' create bookmark'''
-    text = models.TextField()
-    created_date = models.DateTimeField(default=timezone.now)
 
 
 # class Moment(models.Model):

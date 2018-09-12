@@ -5,7 +5,46 @@ from django.http import HttpResponse
 
 # from tracker.models import Post
 from tracker.extras import sterile_HTML, sterile_dictionary, run_bash, ViewTemplateExport
-from .forms import EncodeForm
+from tracker.forms import EncodeForm, PurchaseForm
+from tracker.models import Purchase
+
+def shop_dash(request, seller='artemii'):
+    if request.method == 'POST':
+        # could be done this way without validation
+        # type = request.POST.get('type')
+        form_response = PurchaseForm(request.POST)
+        if form_response.is_valid():
+            type = form_response.cleaned_data['type']
+            price = form_response.cleaned_data['price']
+            Purchase.objects.create(type=type, price=price, seller=seller)
+        else:
+            return HttpResponse("<h3>error</h3>")
+    else:
+        pass
+    # render a page
+    form = PurchaseForm()
+
+    from collections import OrderedDict
+    table_dict = OrderedDict()
+    timearray = []
+    for purchase in Purchase.objects.raw('SELECT * FROM tracker_purchase ORDER BY time DESC'):
+        purchase_dict = {
+            'type': purchase.type,
+            'price': str(purchase.price), # because JSON has only strings, the same with id
+            'time': purchase.time.strftime("%H:%M"),
+            'seller': purchase.seller,
+        }
+        table_dict[str(purchase.id)] = purchase_dict
+
+    table_json = ViewTemplateExport(table_dict, init_type='dictionary', compose_type='JSON') # will be a json string
+
+    return render(request, 'tracker/shop_dash.html', {
+            'table': table_json.compose(),
+            'form': form,
+            'seller': seller,
+            'table_dict': str(table_dict)
+        })
+
 
 def encode_page(request, username="example"):
     method = request.method
@@ -27,6 +66,7 @@ def encode_page(request, username="example"):
             'message': message,
             'form': form,
         })
+
 
 def decode_page(request):
     method = request.method

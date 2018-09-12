@@ -1,5 +1,5 @@
 def my_encode(n):
-    return (n*34 + 71)%541
+    return (n*34 + 71)//541
 
 class ViewTemplateExport:
     def __init__(self, content, init_type='text', compose_type='html'):
@@ -9,7 +9,8 @@ class ViewTemplateExport:
 
     def compose(self):
         ''' prepare the object for export to template'''
-        if type(self.content) == type({}) and self.init_type=='dictionary' and self.compose_type=='JSON':
+        from collections import OrderedDict
+        if type(self.content) is dict or type(self.content) is OrderedDict and self.init_type=='dictionary' and self.compose_type=='JSON':
             import json
             dictionary = self.content.copy() # absolutely necessary to make a copy,
             # so that changes in dictionary will not affect self.content.
@@ -17,8 +18,10 @@ class ViewTemplateExport:
             # How to see inside variable "dictionary" if I don't know how to print?
             # raise Exception(dictionary, type(dictionary))
             dictionary_str = sterile_dictionary(dictionary)
-
-            json_string = json.dumps(dictionary_str, sort_keys=True, indent=4)
+            if type(self.content) is OrderedDict:
+                json_string = json.dumps(dictionary_str, sort_keys=False, indent=4)
+            elif type(self.content) is dict:
+                json_string = json.dumps(dictionary_str, sort_keys=True, indent=4)
             # json_string = json_string.replace("\n", "\\n")
             return_string = json_string
         elif self.init_type == "md" and self.compose_type=="jsvar":
