@@ -7,9 +7,7 @@ class Purchase(models.Model):
     time = models.DateTimeField(default=timezone.now)
     seller = models.CharField(max_length=10)
 
-    def __tstr__(self):
-        type = self.type
-        price = self.price
+    def __str__(self):
         return ' | '.join([self.type, self.price, self.time, self.seller])
 
 class Bookmark(models.Model):

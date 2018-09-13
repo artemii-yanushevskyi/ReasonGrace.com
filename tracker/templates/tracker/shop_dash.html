@@ -17,7 +17,7 @@
 <div id="purchases_table"></div>
 <script>
   var purchases = {{ table | safe }};
-  document.getElementById("purchases_table").innerHTML = tablify(purchases,"Purchases");
+  document.getElementById("purchases_table").innerHTML = tablifylist(purchases,"Purchases");
 </script>
 
 <body>

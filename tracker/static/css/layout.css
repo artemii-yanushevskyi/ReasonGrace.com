@@ -43,11 +43,14 @@ h3 {
 /* ########## TABLES ########### */
 
 table {
-  font-size: 10pt;
   font-family: "Montserrat", "Helvetica", "Lucida Sans", "Lucida Sans Unicode", "Luxi Sans", Tahoma, sans-serif;
   box-shadow: 1px 1px 10px rgba(0,0,0,0.5);
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+.request-table table {
+  font-size: 10pt;
 }
 
 table {

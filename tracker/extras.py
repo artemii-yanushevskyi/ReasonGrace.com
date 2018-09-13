@@ -1,3 +1,5 @@
+from collections import OrderedDict
+
 def my_encode(n):
     return (n*34 + 71)//541
 
@@ -9,7 +11,6 @@ class ViewTemplateExport:
 
     def compose(self):
         ''' prepare the object for export to template'''
-        from collections import OrderedDict
         if type(self.content) is dict or type(self.content) is OrderedDict and self.init_type=='dictionary' and self.compose_type=='JSON':
             import json
             dictionary = self.content.copy() # absolutely necessary to make a copy,
@@ -24,6 +25,13 @@ class ViewTemplateExport:
                 json_string = json.dumps(dictionary_str, sort_keys=True, indent=4)
             # json_string = json_string.replace("\n", "\\n")
             return_string = json_string
+        elif type(self.content) is dict or type(self.content) is OrderedDict and self.init_type=='dictionary' and self.compose_type=='list':
+            dictionary = self.content.copy() # absolutely necessary to make a copy,
+            # so that changes in dictionary will not affect self.content.
+
+            dictionary_sterile = sterile_dictionary(self.content)
+            return_string = str(dictionary_to_listdict(dictionary_sterile))
+
         elif self.init_type == "md" and self.compose_type=="jsvar":
             # use \n instead of \\n to make an actual new line, as opposed to a symbol "\n", in final html
             return_string = self.content.replace("\n", "\\n") + "\\n###### md to jsvar"
@@ -32,6 +40,15 @@ class ViewTemplateExport:
             return_string = self.content
         return return_string
 
+def dictionary_to_listdict(dictionary):
+    if is_dictionary(dictionary):
+        return_list = []
+        for key, value in dictionary.items():
+            list = [key] + [dictionary_to_listdict(value)]
+            return_list.append(list)
+        return return_list
+    else:
+        return dictionary
 
 def sterile_HTML(html):
     import cgi
@@ -39,9 +56,9 @@ def sterile_HTML(html):
     sterile = sterile_bin.decode() # now that's a string
     return sterile
 
-def sterile_dictionary(dic):
+def sterile_dictionary(dictionary):
     ''' converts a dictionary to a dictionary of strings'''
-    for key, value in dic.items():
+    for key, value in dictionary.items():
         if type(key) is not str:
             raise Exception("A key type has to be str, but", key, "is not a string")
 
@@ -49,13 +66,10 @@ def sterile_dictionary(dic):
             pass # the desired case
         elif type(value) is dict:
             dict_value = sterile_dictionary(value) # recurcive call
-            dic[key] = dict_value
+            dictionary[key] = dict_value
         else:
-            # converting to str, for
-            # 'uwsgi.version': b'2.0.17.1' and
-            # 'wsgi.errors': <_io.TextIOWrapper name=2 mode='w' encoding='UTF-8'>,
-            dic[key] = str(value)
-    return dic
+            dictionary[key] = str(value)
+    return dictionary
 
 def run_bash(bashCommand="ls -al"):
         # allows to run only one command at a time; & and && are unavailable
@@ -68,3 +82,6 @@ def run_bash(bashCommand="ls -al"):
         # response_bin_convert = map(hex,output)
         # response_bin = "Output:\n{}\n\nError:\n{}\n\n".format(" ".join(char for char in response_bin_convert), error)
         return response
+
+def is_dictionary(obj):
+    return True if type(obj) is OrderedDict or type(obj) is dict else False
