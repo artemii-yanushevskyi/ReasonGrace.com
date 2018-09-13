@@ -17,6 +17,9 @@ def shop_dash(request, seller='artemii'):
             type = form_response.cleaned_data['type']
             price = form_response.cleaned_data['price']
             Purchase.objects.create(type=type, price=price, seller=seller)
+            # parameters are sent to db, redirecting to this page
+            # method will be POST, form will not be resubmitted on page refresh
+            return HttpResponseRedirect(reverse("tracker.views.shop_dash"))
         else:
             return HttpResponse("<h3>error</h3>")
     else:
