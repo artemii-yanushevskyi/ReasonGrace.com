@@ -49,6 +49,10 @@ table {
   border-spacing: 0;
 }
 
+div.table {
+  margin-bottom: 1cm;
+}
+
 .request-table table {
   font-size: 10pt;
 }
@@ -90,4 +94,51 @@ pre.prettyprint {
 
 }
 
+/* ########## FORMS ########### */
+
+label {
+  display: block;
+  text-align: center;
+  margin-bottom: 0.2cm;
+}
+
+input {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0.5cm;
+  display: block;
+}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button {
+  margin: auto;
+  display: block;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+  margin-bottom: 1cm;
+  text-transform: uppercase;
+}
+.button {
+    background-color: purple;
+    color: white;
+    border: 1px solid black;
+}
+
+.button:hover {
+  background-color: #e7e7e7;
+  color: black;
+}
 /* ########## TABLES ########### */

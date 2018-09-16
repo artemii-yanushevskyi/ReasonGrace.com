@@ -1,10 +1,11 @@
 from django.shortcuts import render
 from django.utils import timezone
 from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse
 
 
 # from tracker.models import Post
-from tracker.extras import sterile_HTML, sterile_dictionary, run_bash, ViewTemplateExport
+from tracker.extras import sterile_HTML, sterile_dictionary, run_bash, ViewTemplateExport, query
 from tracker.forms import EncodeForm, PurchaseForm
 from tracker.models import Purchase
 
@@ -20,7 +21,8 @@ def shop_dash(request, seller='artemii'):
             # parameters are sent to db, redirecting to this page
             # method will be POST, form will not be resubmitted on page refresh
             # e.g. an http GET after a POST
-            return HttpResponseRedirect('')
+            return HttpResponseRedirect(reverse('shop_dash', args=[seller]))
+            # reverse will return shop/sellername
         else:
             return HttpResponse("<h3>error</h3>")
     else:
@@ -30,11 +32,17 @@ def shop_dash(request, seller='artemii'):
 
     from collections import OrderedDict
     table_dict = OrderedDict()
+
+    from mysite.settings import TIME_ZONE
+    timezone.activate(TIME_ZONE) # ('Europe/Kiev')
+    # time in db should always be in UTC format
+    # convert it to local time right before output
+
     for purchase in Purchase.objects.raw('SELECT * FROM tracker_purchase ORDER BY time DESC'):
         purchase_dict = {
             'type': purchase.type,
             'price': str(purchase.price), # because JSON has only strings, the same with id
-            'time': purchase.time.strftime("%H:%M"),
+            'time': timezone.localtime(purchase.time).strftime("%H:%M"),
             'seller': purchase.seller,
         }
         # table_dict[str(purchase.id)] = purchase_dict
@@ -42,11 +50,29 @@ def shop_dash(request, seller='artemii'):
 
     table_list = ViewTemplateExport(table_dict, init_type='dictionary', compose_type='list') # will be a list string
 
+
+    test = OrderedDict()
+
+    i = 0
+    for purchase in Purchase.objects.raw(query['group by type price']):
+        purchase_dict = {
+            'type': purchase.type,
+            'price': str(purchase.price), # because JSON has only strings, the same with id
+            # 'time': timezone.localtime(purchase.time).strftime("%H:%M"),
+            # 'seller': purchase.seller,
+            'groupsize': purchase.groupsize
+        }
+        # table_dict[str(purchase.id)] = purchase_dict
+        test[str(i)] = purchase_dict
+        i += 1
+
+    test = ViewTemplateExport(test, init_type='dictionary', compose_type='JSON') # will be a list string
+
     return render(request, 'tracker/shop_dash.html', {
             'table': table_list.compose(),
             'form': form,
             'seller': seller,
-            'table_dict': str(table_dict)
+            'test': test.compose(),
         })
 
 

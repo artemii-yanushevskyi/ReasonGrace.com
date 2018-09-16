@@ -85,3 +85,11 @@ def run_bash(bashCommand="ls -al"):
 
 def is_dictionary(obj):
     return True if type(obj) is OrderedDict or type(obj) is dict else False
+
+
+query = {
+    'list new first':
+        'SELECT * FROM tracker_purchase ORDER BY time DESC',
+    'group by type price':
+        'SELECT id, type, price, count(*) as groupsize FROM tracker_purchase GROUP BY type, price',
+    }
