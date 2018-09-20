@@ -1,3 +1,13 @@
+# -*- coding: utf-8 -*-
+def name_string(name):
+    ''' uppercase first letter, lovercase the rest
+    full unicode support
+    Usage:
+    # -*- coding: utf-8 -*- is required
+    print(name_string('НфВАФвІЇЇФАІЧУВСКАС КИТ?ЮБЄЖДЛЇХЗЩШГыаываФываФывафыВапавыППЫАВПЫВАР326492387!@#$%^&*к4Me'))
+    '''
+    return name.decode('utf-8').upper()[0] + name.decode('utf-8').lower()[1:]
+
 def my_encode(n):
     return (n*34 + 71)//541
 

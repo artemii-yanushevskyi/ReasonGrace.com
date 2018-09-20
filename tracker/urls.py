@@ -3,8 +3,6 @@ from . import views
 
 urlpatterns = [
     path('', views.site_report, name='site_report'),
-    path('dynamic', views.dynamic_update),
-    path('bookmarks', views.bookmarks_display),
     path('about', views.site_report),
 
     re_path(r'encode/?$',views.encode_page),
