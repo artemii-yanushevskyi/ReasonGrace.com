@@ -32,7 +32,6 @@ def shop_dash(request, seller='artemii'):
             return HttpResponseRedirect(reverse('shop_dash', args=[seller]))
             # reverse will return shop/sellername
         else:
-<<<<<<< HEAD
             return HttpResponse("<h3>Error, the form is not valid. Please doublecheck the entry.</h3>")
     else: # meaning request.method is GET
         # render a page
@@ -181,6 +180,13 @@ def site_report(request):
         'cwd': cwd,
         'views_py': views_py,
     })
+
+def request_info(request):
+     # general info: <WSGIRequest: POST '/bookmarks'>
+     general_info = sterile_HTML(str(request))
+     # detailed info: will be a dictionary passed to template as JSON string
+     detailed_info = ViewTemplateExport(vars(request), init_type='dictionary', compose_type='JSON') # will be a json string
+     return general_info, detailed_info
 
 def dynamic_update(request):
     html = "<h1>dynamic update</h1> <code>def dynamic_update(request):</code>"
