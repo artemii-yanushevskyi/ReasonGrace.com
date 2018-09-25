@@ -4,7 +4,8 @@ from . import views
 urlpatterns = [
     path('', views.site_report, name='site_report'),
     path('about', views.site_report),
-
+    path('unicode', views.unicode_test),
+    
     re_path(r'encode/?$',views.encode_page),
     re_path(r'encode/(?P<username>[\w-]*)/?$', views.encode_page),
 

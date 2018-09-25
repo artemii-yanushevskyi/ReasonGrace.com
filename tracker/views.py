@@ -188,6 +188,5 @@ def request_info(request):
      detailed_info = ViewTemplateExport(vars(request), init_type='dictionary', compose_type='JSON') # will be a json string
      return general_info, detailed_info
 
-def dynamic_update(request):
-    html = "<h1>dynamic update</h1> <code>def dynamic_update(request):</code>"
-    return HttpResponse(html)
+def unicode_test(request):
+    return HttpResponse("Текст українською, English txt")
