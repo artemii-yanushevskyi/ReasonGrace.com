@@ -1,6 +1,16 @@
 # Tracker
 ## Overview
-*This project is currently under development.*
+
+This project is made for educational purposes.
+It has all the basic common elements of IT development
+
+* Programing, Python
+* Data Analysis, separate repository [here](https://github.com/artemii-yanushevskyi/Interviews-preparation)
+* Databases, SQLite
+* Backend, Django
+* Frontend
+
+
 ## Techical
 #### Evironment
 static path in format ```/static/=/path/to/static_folder/```. For instance ```css``` files are in static folder.
@@ -12,34 +22,9 @@ git commit -m "Changed static path, added static file (css) and added README"
 git push -u origin master
 ```
 
-#### Bash ```.bash_profile```
+#### Bash
 
-
-```bash
-alias ..="cd .."                                                                                                                            
-alias ....="cd ../.."                                                                                                                       
-alias tracker="cd ~/site/mysite/tracker"                                                                                                    
-alias site="cd ~/site/mysite"
-```
-
-#### Install JSONField
-
-```bash
-fabulous@ssh4:~/site/env/bin$ pip install psycopg2
-```
-
-```bash
-python manage.py makemigrations tracker
-```
-
-*Do not forget to add a default value*
-
-
-## To do
-
-You can’t use a JSONField from django.contrib.postgres with an Sqlite3 database. You need to either set up a PostgreSQL database and update
-your DATABASES setting, or use a different field in your model.
-
+Shell color palette, alias and shortcuts have been moved to a separate repository [Terminal](https://github.com/artemii-yanushevskyi/Terminal).
 
 ## Development process
 
@@ -58,10 +43,7 @@ python manage.py migrate
 > Now I can edit files and commit changes from iPhone via CodeHub.
 
 ## Resources
-#### Recursive table
-Tables nested in each other:
-[bl.ocks.org](http://bl.ocks.org/nautat/raw/4085017/ bl.ocks.org)
 
+### Django
 
-[The Hitchhiker’s Guide to d3.js](https://medium.com/@enjalot/the-hitchhikers-guide-to-d3-js-a8552174733a Medium)
-
+[Django Girls Tutorials](https://tutorial.djangogirls.org/en/), good tutorial to get started.
