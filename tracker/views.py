@@ -3,6 +3,8 @@ from django.utils import timezone
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 
+from tracker.models import Purchase
+
 from tracker.extras import sterile_HTML, sterile_dictionary, run_bash, ViewTemplateExport, name_string, query
 
 '''
@@ -12,11 +14,38 @@ def decode_page(request)
 def site_report(request)
 '''
 
+def shop_qr(request, seller='artemii'):
+    meta = request.META # extract meta information from request
+    # (this is a dictionary)
+
+    log = open('log.txt', 'a+')
+    print(timezone.now(), file=log)
+    print('link: ' + meta['REQUEST_URI'], file=log)
+    print(meta['PATH_INFO'], '+?',  meta['QUERY_STRING'], file=log)
+    # which is the same as meta['REQUEST_URI']
+    for key in request.GET.keys():
+        # request.GET is a QueryDict, note 'vars' and 'dir'
+        print(key, ': ', request.GET[key], file=log)
+    print('end log entry', file=log)
+    log.close()
+
+    # check validity
+    if all(key in request.GET.keys() for key in ['type', 'price']):
+        # make an entry in a db
+        product = request.GET
+        Purchase.objects.create(type=product['type'], price=product['price'], seller=seller)
+        return render(request, 'tracker/shop_qr.html', {
+                'seller': seller,
+                'type': product['type'],
+                'price': product['price'],
+            })
+    else:
+        return HttpResponse("Error, check the valididy of the product link")
+
+
 def shop_dash(request, seller='artemii'):
     from collections import OrderedDict
     from tracker.forms import PurchaseForm
-    from tracker.models import Purchase
-
 
     if request.method == 'POST':
         # could be done this way without validation

@@ -1,5 +1,4 @@
-# Remote Retail
-*Cloud Cash Desk*
+# Tracker
 ## Overview
 
 This project is made for educational purposes.
@@ -48,7 +47,3 @@ python manage.py migrate
 ### Django
 
 [Django Girls Tutorials](https://tutorial.djangogirls.org/en/), good tutorial to get started.
-
-# Tracker
-## To Do
-Create a db to collect time data. 
