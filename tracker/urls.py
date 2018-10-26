@@ -13,8 +13,10 @@ urlpatterns = [
     re_path(r'shop/(?P<seller>[\s\w-]*)/?$', views.shop_dash, name='shop_dash'),
 
     re_path(r'shop-qr/(?P<seller>[\s\w-]*)/$', views.shop_qr, name='shop_qr'),
-    ''' example links:
-    http://reasongrace.com/shop-qr/Гоша%20Вор/?price=12&type=Kit%20Kat
-    http://reasongrace.com/shop-qr/Derek/?price=2000&type=Виза
-    '''
 ]
+
+''' example links:
+http://reasongrace.com/shop-qr/Андрій Степанов/?price=12&type=Kit%20Kat
+http://reasongrace.com/shop-qr/Андрій%20Степанов/?price=12&type=Kit%20Kat
+http://reasongrace.com/shop-qr/Derek/?price=2000&type=Англійський Словник
+'''

@@ -1,0 +1,219 @@
+[
+    {"model": "contenttypes.contenttype", "pk": 1, "fields":
+        {"app_label": "admin", "model": "logentry"}},
+    {"model": "contenttypes.contenttype", "pk": 2, "fields":
+        {"app_label": "auth", "model": "permission"}},
+    {"model": "contenttypes.contenttype", "pk": 3, "fields":
+        {"app_label": "auth", "model": "group"}},
+    {"model": "contenttypes.contenttype", "pk": 4, "fields":
+        {"app_label": "auth", "model": "user"}},
+    {"model": "contenttypes.contenttype", "pk": 5, "fields":
+        {"app_label": "contenttypes", "model": "contenttype"}},
+    {"model": "contenttypes.contenttype", "pk": 6, "fields":
+        {"app_label": "sessions", "model": "session"}},
+    {"model": "contenttypes.contenttype", "pk": 7, "fields":
+        {"app_label": "tracker", "model": "post"}},
+    {"model": "contenttypes.contenttype", "pk": 8, "fields":
+        {"app_label": "tracker", "model": "buffer"}}, 
+    {"model": "contenttypes.contenttype", "pk": 9, "fields":
+        {"app_label": "tracker", "model": "moment"}},
+    {"model": "contenttypes.contenttype", "pk": 10, "fields":
+        {"app_label": "tracker", "model": "bookmark"}},
+    {"model": "contenttypes.contenttype", "pk": 11, "fields":
+        {"app_label": "tracker", "model": "purchase"}},
+    {"model": "sessions.session", "pk": "hd3tcpfxzqwdz1ezb99lsgbdijpne20u", "fields":
+        {"session_data": "NjRkYjUzZjMyMGYzMjVhYzAxZjE1OTk2MDEwMzhlMmFlZWY2MTgxOTp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJlYjg5YjRiNzhjZjBjZTU2NWI2NDAzYjRiYjFlZDUyOTkyM2Q1YmM1In0=", "expire_date": "2018-09-06T07:23:13.819Z"}},
+    {"model": "tracker.purchase", "pk": 1, "fields":
+        {"type": "\u041a\u0435\u043f\u043a\u0430", "price": 220, "time": "2018-09-14T09:55:34.478Z", "seller": "tanya"}},
+    {"model": "tracker.purchase", "pk": 2, "fields":
+        {"type": "\u041e\u0447\u043a\u0438", "price": 180, "time": "2018-09-14T09:56:16.728Z", "seller": "tanya"}},
+    {"model": "tracker.purchase", "pk": 3, "fields":
+        {"type": "\u041a\u0435\u043f\u043a\u0430", "price": 220, "time": "2018-09-14T09:56:39.507Z", "seller": "tanya"}},
+    {"model": "tracker.purchase", "pk": 4, "fields":
+        {"type": "\u0417\u043e\u043d\u0442", "price": 450, "time": "2018-09-14T21:30:30.686Z", "seller": "tanya"}},
+    {"model": "tracker.purchase", "pk": 5, "fields":
+        {"type": "\u041e\u0447\u043a\u0438", "price": 280, "time": "2018-09-16T09:45:09.793Z", "seller": "tanya"}},
+    {"model": "tracker.purchase", "pk": 6, "fields":
+        {"type": "\u041e\u0447\u043a\u0438", "price": 280, "time": "2018-09-16T09:46:12.278Z", "seller": "tanya"}},
+    {"model": "tracker.purchase", "pk": 7, "fields":
+        {"type": "\u0410\u0439\u0444\u043e\u043d", "price": 40000, "time": "2018-09-18T11:38:19.094Z", "seller": "artemii"}},
+    {"model": "tracker.purchase", "pk": 8, "fields":
+        {"type": "Mac Pro", "price": 300000, "time": "2018-09-19T15:21:57.597Z", "seller": "vova"}},
+    {"model": "tracker.purchase", "pk": 9, "fields":
+        {"type": "Mac Pro", "price": 300000, "time": "2018-09-19T15:22:32.577Z", "seller": "vova"}},
+    {"model": "tracker.purchase", "pk": 10, "fields":
+        {"type": "iPhone XS", "price": 800000, "time": "2018-09-20T06:30:21.578Z", "seller": "nastya"}},
+    {"model": "tracker.purchase", "pk": 11, "fields":
+        {"type": "iPhone XS", "price": 800000, "time": "2018-09-20T06:30:55.266Z", "seller": "nastya"}},
+    {"model": "tracker.purchase", "pk": 12, "fields":
+        {"type": "Headphones", "price": 1000, "time": "2018-09-20T06:32:12.171Z", "seller": "ruslan"}},
+    {"model": "tracker.purchase", "pk": 13, "fields":
+        {"type": "Headphones", "price": 1000, "time": "2018-09-20T06:32:52.558Z", "seller": "ruslan"}},
+    {"model": "tracker.purchase", "pk": 14, "fields":
+        {"type": "Headphones", "price": 1000, "time": "2018-09-20T06:33:13.948Z", "seller": "artemii"}},
+    {"model": "tracker.purchase", "pk": 15, "fields":
+        {"type": "Headphones", "price": 1000, "time": "2018-09-20T06:36:22.211Z", "seller": "\u041d\u0430\u0441\u0442\u044f"}},
+    {"model": "tracker.purchase", "pk": 16, "fields":
+        {"type": "\u0427\u0435\u0445\u043e\u043b", "price": 450, "time": "2018-09-20T10:04:14.549Z", "seller": "\u0410\u0440\u0422\u0435\u041c\u0456\u0439"}},
+    {"model": "tracker.purchase", "pk": 17, "fields":
+        {"type": "\u0427\u0435\u0445\u043e\u043b", "price": 800, "time": "2018-09-20T10:05:52.345Z", "seller": "\u0410\u0440\u0422\u0435\u041c\u0456\u0439"}},
+    {"model": "tracker.purchase", "pk": 18, "fields":
+        {"type": "\u042f\u0439\u0446\u043e", "price": 2, "time": "2018-09-20T13:03:17.154Z", "seller": "\u0420\u043e\u043c\u0430\u043d\u0447\u0438\u043a"}},
+    {"model": "tracker.purchase", "pk": 19, "fields":
+        {"type": "\u0428\u0430\u0441\u0441\u0438", "price": 59000, "time": "2018-09-20T13:18:33.620Z", "seller": "\u0410\u043d-12"}},
+    {"model": "tracker.purchase", "pk": 20, "fields":
+        {"type": "\u041c\u0430\u0437\u0434\u0430 3", "price": 2000000, "time": "2018-09-27T09:56:38.555Z", "seller": "\u042e\u043b\u044f"}},
+    {"model": "tracker.purchase", "pk": 21, "fields":
+        {"type": "Kit Kat", "price": 12, "time": "2018-10-04T15:15:19.068Z", "seller": "\u0413\u043e\u0448\u0430 \u0412\u043e\u0440"}},
+    {"model": "tracker.purchase", "pk": 22, "fields":
+        {"type": "Visa", "price": 2000, "time": "2018-10-04T16:23:46.953Z", "seller": "Derek"}},
+    {"model": "tracker.purchase", "pk": 23, "fields":
+        {"type": "Visa", "price": 2000, "time": "2018-10-04T16:26:29.933Z", "seller": "Derek"}},
+    {"model": "tracker.purchase", "pk": 24, "fields":
+        {"type": "Visa", "price": 2000, "time": "2018-10-04T16:26:32.776Z", "seller": "Derek"}},
+    {"model": "tracker.purchase", "pk": 25, "fields":
+        {"type": "\u041a\u043e\u043c\u043f\u0438\u043a \u041c\u044b\u0448\u043a\u0430", "price": 2000, "time": "2018-10-04T16:26:50.404Z", "seller": "Derek"}},
+    {"model": "tracker.purchase", "pk": 26, "fields":
+        {"type": "\u0412\u0438\u0437\u0430", "price": 2000, "time": "2018-10-04T16:36:51.483Z", "seller": "Derek"}},
+    {"model": "tracker.purchase", "pk": 27, "fields":
+        {"type": "\u0412\u0438\u0437\u0430", "price": 2000, "time": "2018-10-04T17:05:37.396Z", "seller": "Derek"}},
+    {"model": "tracker.purchase", "pk": 28, "fields":
+        {"type": "\u0428\u0430\u0440\u0444", "price": 200, "time": "2018-10-08T19:14:29.089Z", "seller": "\u0422\u0430\u043d\u044f"}},
+    {"model": "tracker.bookmark", "pk": 1, "fields":
+        {"text": "Opportunity to work in the UK.\r\n\r\nhttps://stackoverflow.com/jobs/186845/ueni-senior-python-developer-we-untangle-the-ueni?med=clc\r\n\r\nPython, Django.", "created_date": "2018-08-27T12:20:06Z"}},
+    {"model": "auth.permission", "pk": 1, "fields":
+        {"name": "Can add log entry", "content_type": 1, "codename": "add_logentry"}},
+    {"model": "auth.permission", "pk": 2, "fields":
+        {"name": "Can change log entry", "content_type": 1, "codename": "change_logentry"}},
+    {"model": "auth.permission", "pk": 3, "fields":
+        {"name": "Can delete log entry", "content_type": 1, "codename": "delete_logentry"}},
+    {"model": "auth.permission", "pk": 4, "fields":
+        {"name": "Can view log entry", "content_type": 1, "codename": "view_logentry"}},
+    {"model": "auth.permission", "pk": 5, "fields":
+        {"name": "Can add permission", "content_type": 2, "codename": "add_permission"}},
+    {"model": "auth.permission", "pk": 6, "fields":
+        {"name": "Can change permission", "content_type": 2, "codename": "change_permission"}},
+    {"model": "auth.permission", "pk": 7, "fields":
+        {"name": "Can delete permission", "content_type": 2, "codename": "delete_permission"}},
+    {"model": "auth.permission", "pk": 8, "fields":
+        {"name": "Can view permission", "content_type": 2, "codename": "view_permission"}},
+    {"model": "auth.permission", "pk": 9, "fields":
+        {"name": "Can add group", "content_type": 3, "codename": "add_group"}},
+    {"model": "auth.permission", "pk": 10, "fields":
+        {"name": "Can change group", "content_type": 3, "codename": "change_group"}},
+    {"model": "auth.permission", "pk": 11, "fields":
+        {"name": "Can delete group", "content_type": 3, "codename": "delete_group"}},
+    {"model": "auth.permission", "pk": 12, "fields":
+        {"name": "Can view group", "content_type": 3, "codename": "view_group"}},
+    {"model": "auth.permission", "pk": 13, "fields":
+        {"name": "Can add user", "content_type": 4, "codename": "add_user"}},
+    {"model": "auth.permission", "pk": 14, "fields":
+        {"name": "Can change user", "content_type": 4, "codename": "change_user"}},
+    {"model": "auth.permission", "pk": 15, "fields":
+        {"name": "Can delete user", "content_type": 4, "codename": "delete_user"}},
+    {"model": "auth.permission", "pk": 16, "fields":
+        {"name": "Can view user", "content_type": 4, "codename": "view_user"}},
+    {"model": "auth.permission", "pk": 17, "fields":
+        {"name": "Can add content type", "content_type": 5, "codename": "add_contenttype"}},
+    {"model": "auth.permission", "pk": 18, "fields":
+        {"name": "Can change content type", "content_type": 5, "codename": "change_contenttype"}},
+    {"model": "auth.permission", "pk": 19, "fields":
+        {"name": "Can delete content type", "content_type": 5, "codename": "delete_contenttype"}},
+    {"model": "auth.permission", "pk": 20, "fields":
+        {"name": "Can view content type", "content_type": 5, "codename": "view_contenttype"}},
+    {"model": "auth.permission", "pk": 21, "fields":
+        {"name": "Can add session", "content_type": 6, "codename": "add_session"}},
+    {"model": "auth.permission", "pk": 22, "fields":
+        {"name": "Can change session", "content_type": 6, "codename": "change_session"}},
+    {"model": "auth.permission", "pk": 23, "fields":
+        {"name": "Can delete session", "content_type": 6, "codename": "delete_session"}},
+    {"model": "auth.permission", "pk": 24, "fields":
+        {"name": "Can view session", "content_type": 6, "codename": "view_session"}},
+    {"model": "auth.permission", "pk": 25, "fields":
+        {"name": "Can add post", "content_type": 7, "codename": "add_post"}},
+    {"model": "auth.permission", "pk": 26, "fields":
+        {"name": "Can change post", "content_type": 7, "codename": "change_post"}},
+    {"model": "auth.permission", "pk": 27, "fields":
+        {"name": "Can delete post", "content_type": 7, "codename": "delete_post"}},
+    {"model": "auth.permission", "pk": 28, "fields":
+        {"name": "Can view post", "content_type": 7, "codename": "view_post"}},
+    {"model": "auth.permission", "pk": 29, "fields":
+        {"name": "Can add buffer", "content_type": 8, "codename": "add_buffer"}},
+    {"model": "auth.permission", "pk": 30, "fields":
+        {"name": "Can change buffer", "content_type": 8, "codename": "change_buffer"}},
+    {"model": "auth.permission", "pk": 31, "fields":
+        {"name": "Can delete buffer", "content_type": 8, "codename": "delete_buffer"}},
+    {"model": "auth.permission", "pk": 32, "fields":
+        {"name": "Can view buffer", "content_type": 8, "codename": "view_buffer"}},
+    {"model": "auth.permission", "pk": 33, "fields":
+        {"name": "Can add moment", "content_type": 9, "codename": "add_moment"}},
+    {"model": "auth.permission", "pk": 34, "fields":
+        {"name": "Can change moment", "content_type": 9, "codename": "change_moment"}},
+    {"model": "auth.permission", "pk": 35, "fields":
+        {"name": "Can delete moment", "content_type": 9, "codename": "delete_moment"}},
+    {"model": "auth.permission", "pk": 36, "fields":
+        {"name": "Can view moment", "content_type": 9, "codename": "view_moment"}},
+    {"model": "auth.permission", "pk": 37, "fields":
+        {"name": "Can add bookmark", "content_type": 10, "codename": "add_bookmark"}},
+    {"model": "auth.permission", "pk": 38, "fields":
+        {"name": "Can change bookmark", "content_type": 10, "codename": "change_bookmark"}},
+    {"model": "auth.permission", "pk": 39, "fields":
+        {"name": "Can delete bookmark", "content_type": 10, "codename": "delete_bookmark"}},
+    {"model": "auth.permission", "pk": 40, "fields":
+        {"name": "Can view bookmark", "content_type": 10, "codename": "view_bookmark"}},
+    {"model": "auth.permission", "pk": 41, "fields":
+        {"name": "Can add purchase", "content_type": 11, "codename": "add_purchase"}},
+    {"model": "auth.permission", "pk": 42, "fields":
+        {"name": "Can change purchase", "content_type": 11, "codename": "change_purchase"}},
+    {"model": "auth.permission", "pk": 43, "fields":
+        {"name": "Can delete purchase", "content_type": 11, "codename": "delete_purchase"}},
+    {"model": "auth.permission", "pk": 44, "fields":
+        {"name": "Can view purchase", "content_type": 11, "codename": "view_purchase"}},
+    {"model": "auth.user", "pk": 1, "fields":
+        {"password": "pbkdf2_sha256$120000$OM4Gf3EtaU9v$M+MoMGZGgA4/xbk//FYTBWdJnlkMujI2Hd+NSd2L5sI=", "last_login": "2018-08-23T07:23:13.816Z", "is_superuser": true, "username": "fabulous", "first_name": "", "last_name": "", "email": "artemii.yanushevskyi@gmail.com", "is_staff": true, "is_active": true, "date_joined": "2018-08-13T06:59:43.850Z", "groups": [], "user_permissions": []}},
+    {"model": "admin.logentry", "pk": 1, "fields":
+        {"action_time": "2018-08-13T10:05:46.280Z", "user": 1, "content_type": 7, "object_id": "1", "object_repr": "Work", "action_flag": 1, "change_message": "[
+        {\"added\":
+        {}}]"}},
+    {"model": "admin.logentry", "pk": 2, "fields":
+        {"action_time": "2018-08-14T08:44:59.398Z", "user": 1, "content_type": 7, "object_id": "2", "object_repr": "Home", "action_flag": 1, "change_message": "[
+        {\"added\":
+        {}}]"}},
+    {"model": "admin.logentry", "pk": 3, "fields":
+        {"action_time": "2018-08-16T07:12:31.986Z", "user": 1, "content_type": 7, "object_id": "3", "object_repr": "Filling forms with curl or wget.md", "action_flag": 1, "change_message": "[
+        {\"added\":
+        {}}]"}},
+    {"model": "admin.logentry", "pk": 4, "fields":
+        {"action_time": "2018-08-16T14:54:47.778Z", "user": 1, "content_type": 8, "object_id": "1", "object_repr": "Buffer object (1)", "action_flag": 1, "change_message": "[
+        {\"added\":
+        {}}]"}},
+    {"model": "admin.logentry", "pk": 5, "fields":
+        {"action_time": "2018-08-16T14:55:27.017Z", "user": 1, "content_type": 8, "object_id": "2", "object_repr": "Buffer object (2)", "action_flag": 1, "change_message": "[
+        {\"added\":
+        {}}]"}},
+    {"model": "admin.logentry", "pk": 6, "fields":
+        {"action_time": "2018-08-17T14:02:27.038Z", "user": 1, "content_type": 8, "object_id": "3", "object_repr": "Buffer object (3)", "action_flag": 1, "change_message": "[
+        {\"added\":
+        {}}]"}},
+    {"model": "admin.logentry", "pk": 7, "fields":
+        {"action_time": "2018-08-17T14:20:37.533Z", "user": 1, "content_type": 8, "object_id": "4", "object_repr": "Buffer object (4)", "action_flag": 1, "change_message": "[
+        {\"added\":
+        {}}]"}},
+    {"model": "admin.logentry", "pk": 8, "fields":
+        {"action_time": "2018-08-20T11:22:45.521Z", "user": 1, "content_type": 8, "object_id": "5", "object_repr": "Buffer object (5)", "action_flag": 1, "change_message": "[
+        {\"added\":
+        {}}]"}},
+    {"model": "admin.logentry", "pk": 9, "fields":
+        {"action_time": "2018-08-20T11:22:51.358Z", "user": 1, "content_type": 8, "object_id": "5", "object_repr": "Buffer object (5)", "action_flag": 2, "change_message": "[]"}},
+    {"model": "admin.logentry", "pk": 10, "fields":
+        {"action_time": "2018-08-23T07:25:00.259Z", "user": 1, "content_type": 7, "object_id": "4", "object_repr": "Title", "action_flag": 1, "change_message": "[
+        {\"added\":
+        {}}]"}},
+    {"model": "admin.logentry", "pk": 11, "fields":
+        {"action_time": "2018-08-27T11:06:26.329Z", "user": 1, "content_type": 8, "object_id": "6", "object_repr": "Buffer object (6)", "action_flag": 1, "change_message": "[
+        {\"added\":
+        {}}]"}},
+    {"model": "admin.logentry", "pk": 12, "fields":
+        {"action_time": "2018-08-27T12:21:17.411Z", "user": 1, "content_type": 10, "object_id": "1", "object_repr": "Bookmark object (1)", "action_flag": 1, "change_message": "[
+        {\"added\":
+        {}}]"}}]

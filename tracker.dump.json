@@ -1,0 +1,260 @@
+[
+{"model": "tracker.purchase",
+ "pk": 1,
+ "fields": 
+
+{"type": "\u041a\u0435\u043f\u043a\u0430",
+ "price": 220,
+ "time": "2018-09-14T09:55:34.478Z",
+ "seller": "tanya"}},
+
+{"model": "tracker.purchase",
+ "pk": 2,
+ "fields": 
+
+{"type": "\u041e\u0447\u043a\u0438",
+ "price": 180,
+ "time": "2018-09-14T09:56:16.728Z",
+ "seller": "tanya"}},
+
+{"model": "tracker.purchase",
+ "pk": 3,
+ "fields": 
+
+{"type": "\u041a\u0435\u043f\u043a\u0430",
+ "price": 220,
+ "time": "2018-09-14T09:56:39.507Z",
+ "seller": "tanya"}},
+
+{"model": "tracker.purchase",
+ "pk": 4,
+ "fields": 
+
+{"type": "\u0417\u043e\u043d\u0442",
+ "price": 450,
+ "time": "2018-09-14T21:30:30.686Z",
+ "seller": "tanya"}},
+
+{"model": "tracker.purchase",
+ "pk": 5,
+ "fields": 
+
+{"type": "\u041e\u0447\u043a\u0438",
+ "price": 280,
+ "time": "2018-09-16T09:45:09.793Z",
+ "seller": "tanya"}},
+
+{"model": "tracker.purchase",
+ "pk": 6,
+ "fields": 
+
+{"type": "\u041e\u0447\u043a\u0438",
+ "price": 280,
+ "time": "2018-09-16T09:46:12.278Z",
+ "seller": "tanya"}},
+
+{"model": "tracker.purchase",
+ "pk": 7,
+ "fields": 
+
+{"type": "\u0410\u0439\u0444\u043e\u043d",
+ "price": 40000,
+ "time": "2018-09-18T11:38:19.094Z",
+ "seller": "artemii"}},
+
+{"model": "tracker.purchase",
+ "pk": 8,
+ "fields": 
+
+{"type": "Mac Pro",
+ "price": 300000,
+ "time": "2018-09-19T15:21:57.597Z",
+ "seller": "vova"}},
+
+{"model": "tracker.purchase",
+ "pk": 9,
+ "fields": 
+
+{"type": "Mac Pro",
+ "price": 300000,
+ "time": "2018-09-19T15:22:32.577Z",
+ "seller": "vova"}},
+
+{"model": "tracker.purchase",
+ "pk": 10,
+ "fields": 
+
+{"type": "iPhone XS",
+ "price": 800000,
+ "time": "2018-09-20T06:30:21.578Z",
+ "seller": "nastya"}},
+
+{"model": "tracker.purchase",
+ "pk": 11,
+ "fields": 
+
+{"type": "iPhone XS",
+ "price": 800000,
+ "time": "2018-09-20T06:30:55.266Z",
+ "seller": "nastya"}},
+
+{"model": "tracker.purchase",
+ "pk": 12,
+ "fields": 
+
+{"type": "Headphones",
+ "price": 1000,
+ "time": "2018-09-20T06:32:12.171Z",
+ "seller": "ruslan"}},
+
+{"model": "tracker.purchase",
+ "pk": 13,
+ "fields": 
+
+{"type": "Headphones",
+ "price": 1000,
+ "time": "2018-09-20T06:32:52.558Z",
+ "seller": "ruslan"}},
+
+{"model": "tracker.purchase",
+ "pk": 14,
+ "fields": 
+
+{"type": "Headphones",
+ "price": 1000,
+ "time": "2018-09-20T06:33:13.948Z",
+ "seller": "artemii"}},
+
+{"model": "tracker.purchase",
+ "pk": 15,
+ "fields": 
+
+{"type": "Headphones",
+ "price": 1000,
+ "time": "2018-09-20T06:36:22.211Z",
+ "seller": "\u041d\u0430\u0441\u0442\u044f"}},
+
+{"model": "tracker.purchase",
+ "pk": 16,
+ "fields": 
+
+{"type": "\u0427\u0435\u0445\u043e\u043b",
+ "price": 450,
+ "time": "2018-09-20T10:04:14.549Z",
+ "seller": "\u0410\u0440\u0422\u0435\u041c\u0456\u0439"}},
+
+{"model": "tracker.purchase",
+ "pk": 17,
+ "fields": 
+
+{"type": "\u0427\u0435\u0445\u043e\u043b",
+ "price": 800,
+ "time": "2018-09-20T10:05:52.345Z",
+ "seller": "\u0410\u0440\u0422\u0435\u041c\u0456\u0439"}},
+
+{"model": "tracker.purchase",
+ "pk": 18,
+ "fields": 
+
+{"type": "\u042f\u0439\u0446\u043e",
+ "price": 2,
+ "time": "2018-09-20T13:03:17.154Z",
+ "seller": "\u0420\u043e\u043c\u0430\u043d\u0447\u0438\u043a"}},
+
+{"model": "tracker.purchase",
+ "pk": 19,
+ "fields": 
+
+{"type": "\u0428\u0430\u0441\u0441\u0438",
+ "price": 59000,
+ "time": "2018-09-20T13:18:33.620Z",
+ "seller": "\u0410\u043d-12"}},
+
+{"model": "tracker.purchase",
+ "pk": 20,
+ "fields": 
+
+{"type": "\u041c\u0430\u0437\u0434\u0430 3",
+ "price": 2000000,
+ "time": "2018-09-27T09:56:38.555Z",
+ "seller": "\u042e\u043b\u044f"}},
+
+{"model": "tracker.purchase",
+ "pk": 21,
+ "fields": 
+
+{"type": "Kit Kat",
+ "price": 12,
+ "time": "2018-10-04T15:15:19.068Z",
+ "seller": "\u0413\u043e\u0448\u0430 \u0412\u043e\u0440"}},
+
+{"model": "tracker.purchase",
+ "pk": 22,
+ "fields": 
+
+{"type": "Visa",
+ "price": 2000,
+ "time": "2018-10-04T16:23:46.953Z",
+ "seller": "Derek"}},
+
+{"model": "tracker.purchase",
+ "pk": 23,
+ "fields": 
+
+{"type": "Visa",
+ "price": 2000,
+ "time": "2018-10-04T16:26:29.933Z",
+ "seller": "Derek"}},
+
+{"model": "tracker.purchase",
+ "pk": 24,
+ "fields": 
+
+{"type": "Visa",
+ "price": 2000,
+ "time": "2018-10-04T16:26:32.776Z",
+ "seller": "Derek"}},
+
+{"model": "tracker.purchase",
+ "pk": 25,
+ "fields": 
+
+{"type": "\u041a\u043e\u043c\u043f\u0438\u043a \u041c\u044b\u0448\u043a\u0430",
+ "price": 2000,
+ "time": "2018-10-04T16:26:50.404Z",
+ "seller": "Derek"}},
+
+{"model": "tracker.purchase",
+ "pk": 26,
+ "fields": 
+
+{"type": "\u0412\u0438\u0437\u0430",
+ "price": 2000,
+ "time": "2018-10-04T16:36:51.483Z",
+ "seller": "Derek"}},
+
+{"model": "tracker.purchase",
+ "pk": 27,
+ "fields": 
+
+{"type": "\u0412\u0438\u0437\u0430",
+ "price": 2000,
+ "time": "2018-10-04T17:05:37.396Z",
+ "seller": "Derek"}},
+
+{"model": "tracker.purchase",
+ "pk": 28,
+ "fields": 
+
+{"type": "\u0428\u0430\u0440\u0444",
+ "price": 200,
+ "time": "2018-10-08T19:14:29.089Z",
+ "seller": "\u0422\u0430\u043d\u044f"}},
+
+{"model": "tracker.bookmark",
+ "pk": 1,
+ "fields": 
+
+{"text": "Opportunity to work in the UK.\r\n\r\nhttps://stackoverflow.com/jobs/186845/ueni-senior-python-developer-we-untangle-the-ueni?med=clc\r\n\r\nPython,
+ Django.",
+ "created_date": "2018-08-27T12:20:06Z"}}]

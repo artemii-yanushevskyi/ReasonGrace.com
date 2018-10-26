@@ -25,8 +25,7 @@ from mysite.hidden_settings import SECRET_KEY, psql_password
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = []
+# DEBUG = False
 
 # Application definition
 
